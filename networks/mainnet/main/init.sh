@@ -26,26 +26,26 @@ echo "Existing slack webhook url: "
 unset input && read -s input \
 ; echo $input | docker secret create slack_webhook_url -
 
-echo -e "\n[ tomochain ]\n"
+echo -e "\n[ rupaya ]\n"
 
-echo "New account password for node 'tomochain01': "
+echo "New account password for node 'rupaya01': "
 unset input && read -s input \
-; echo $input | docker secret create tomochain_password_tomochain01 -
-echo "Existing private key for node 'tomochain01': "
+; echo $input | docker secret create rupaya_password_rupaya01 -
+echo "Existing private key for node 'rupaya01': "
 unset input && read -s input \
-; echo $input | docker secret create tomochain_pk_tomochain01 -
-echo "New account password for node 'tomochain02': "
+; echo $input | docker secret create rupaya_pk_rupaya01 -
+echo "New account password for node 'rupaya02': "
 unset input && read -s input \
-; echo $input | docker secret create tomochain_password_tomochain02 -
-echo "Existing private key for node 'tomochain02': "
+; echo $input | docker secret create rupaya_password_rupaya02 -
+echo "Existing private key for node 'rupaya02': "
 unset input && read -s input \
-; echo $input | docker secret create tomochain_pk_tomochain02 -
-echo "New account password for node 'tomochain03': "
+; echo $input | docker secret create rupaya_pk_rupaya02 -
+echo "New account password for node 'rupaya03': "
 unset input && read -s input \
-; echo $input | docker secret create tomochain_password_tomochain03 -
-echo "Existing private key for node 'tomochain03': "
+; echo $input | docker secret create rupaya_password_rupaya03 -
+echo "Existing private key for node 'rupaya03': "
 unset input && read -s input \
-; echo $input | docker secret create tomochain_pk_tomochain03 -
+; echo $input | docker secret create rupaya_pk_rupaya03 -
 
 echo -e "\n[ loadbalancer ]\n"
 

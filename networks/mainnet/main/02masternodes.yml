@@ -2,16 +2,16 @@ version: "3.4"
 
 services:
 
-  masternode_tomochain01:
-    image: tomochain/node:stable
+  masternode_rupaya01:
+    image: rupaya/node:stable
     environment:
-      IDENTITY: tomochain01
-      PASSWORD_FILE: /run/secrets/tomochain_password_tomochain01
-      PRIVATE_KEY_FILE: /run/secrets/tomochain_pk_tomochain01
-      BOOTNODES: enode://97f0ca95a653e3c44d5df2674e19e9324ea4bf4d47a46b1d8560f3ed4ea328f725acec3fcfcb37eb11706cf07da669e9688b091f1543f89b2425700a68bc8876@104.248.98.78:30301,enode://b72927f349f3a27b789d0ca615ffe3526f361665b496c80e7cc19dace78bd94785fdadc270054ab727dbb172d9e3113694600dd31b2558dd77ad85a869032dea@188.166.207.189:30301,enode://c8f2f0643527d4efffb8cb10ef9b6da4310c5ac9f2e988a7f85363e81d42f1793f64a9aa127dbaff56b1e8011f90fe9ff57fa02a36f73220da5ff81d8b8df351@104.248.98.60:30301
+      IDENTITY: rupaya01
+      PASSWORD_FILE: /run/secrets/rupaya_password_rupaya01
+      PRIVATE_KEY_FILE: /run/secrets/rupaya_pk_rupaya01
+      BOOTNODES: enode://daea23c08fc591109d1478543ed06fc714bd2b380c1eb4bc81e0d0e2ce75d900cfa8010fe127028366c4d8ff5e132246a6268a884152785946c4d13dccf2980e@206.189.18.217:30301
       NETWORK_ID: 88
       VERBOSITY: 3
-      NETSTATS_HOST: stats.tomochain.com
+      NETSTATS_HOST: stats.rupaya.io
       NETSTATS_PORT: 443
       WS_SECRET_FILE: /run/secrets/netstats_ws_secret
       ANNOUNCE_TXS: 'true'
@@ -24,36 +24,36 @@ services:
         published: 30303
         protocol: udp
         mode: host
-      - target: 8545
-        published: 8545
+      - target: 7050
+        published: 7050
         protocol: tcp
         mode: host
-      - target: 8546
-        published: 8546
+      - target: 8050
+        published: 8050
         protocol: tcp
         mode: host
     secrets:
-      - tomochain_password_tomochain01
-      - tomochain_pk_tomochain01
+      - rupaya_password_rupaya01
+      - rupaya_pk_rupaya01
       - netstats_ws_secret
     volumes:
-      - /mnt/sgp1_vol_mainnet_masternode01_chaindata/data:/tomochain/data
+      - /mnt/sgp1_vol_mainnet_masternode01_chaindata/data:/rupaya/data
     deploy:
       placement:
         constraints:
           - node.labels.project == masternode
-          - node.labels.masternode == tomochain01
+          - node.labels.masternode == rupaya01
 
-  masternode_tomochain02:
-    image: tomochain/node:stable
+  masternode_rupaya02:
+    image: rupaya/node:stable
     environment:
-      IDENTITY: tomochain02
-      PASSWORD_FILE: /run/secrets/tomochain_password_tomochain02
-      PRIVATE_KEY_FILE: /run/secrets/tomochain_pk_tomochain02
-      BOOTNODES: enode://97f0ca95a653e3c44d5df2674e19e9324ea4bf4d47a46b1d8560f3ed4ea328f725acec3fcfcb37eb11706cf07da669e9688b091f1543f89b2425700a68bc8876@104.248.98.78:30301,enode://b72927f349f3a27b789d0ca615ffe3526f361665b496c80e7cc19dace78bd94785fdadc270054ab727dbb172d9e3113694600dd31b2558dd77ad85a869032dea@188.166.207.189:30301,enode://c8f2f0643527d4efffb8cb10ef9b6da4310c5ac9f2e988a7f85363e81d42f1793f64a9aa127dbaff56b1e8011f90fe9ff57fa02a36f73220da5ff81d8b8df351@104.248.98.60:30301
+      IDENTITY: rupaya02
+      PASSWORD_FILE: /run/secrets/rupaya_password_rupaya02
+      PRIVATE_KEY_FILE: /run/secrets/rupaya_pk_rupaya02
+      BOOTNODES: enode://daea23c08fc591109d1478543ed06fc714bd2b380c1eb4bc81e0d0e2ce75d900cfa8010fe127028366c4d8ff5e132246a6268a884152785946c4d13dccf2980e@206.189.18.217:30301
       NETWORK_ID: 88
       VERBOSITY: 3
-      NETSTATS_HOST: stats.tomochain.com
+      NETSTATS_HOST: stats.rupaya.io
       NETSTATS_PORT: 443
       WS_SECRET_FILE: /run/secrets/netstats_ws_secret
       ANNOUNCE_TXS: 'true'
@@ -67,36 +67,36 @@ services:
         published: 30303
         protocol: udp
         mode: host
-      - target: 8545
-        published: 8545
+      - target: 7050
+        published: 7050
         protocol: tcp
         mode: host
-      - target: 8546
-        published: 8546
+      - target: 8050
+        published: 8050
         protocol: tcp
         mode: host
     secrets:
-      - tomochain_password_tomochain02
-      - tomochain_pk_tomochain02
+      - rupaya_password_rupaya02
+      - rupaya_pk_rupaya02
       - netstats_ws_secret
     volumes:
-      - /mnt/sgp1_vol_mainnet_masternode02_chaindata/data:/tomochain/data
+      - /mnt/sgp1_vol_mainnet_masternode02_chaindata/data:/rupaya/data
     deploy:
       placement:
         constraints:
           - node.labels.project == masternode
-          - node.labels.masternode == tomochain02
+          - node.labels.masternode == rupaya02
 
-  masternode_tomochain03:
-    image: tomochain/node:stable
+  masternode_rupaya03:
+    image: rupaya/node:stable
     environment:
-      IDENTITY: tomochain03
-      PASSWORD_FILE: /run/secrets/tomochain_password_tomochain03
-      PRIVATE_KEY_FILE: /run/secrets/tomochain_pk_tomochain03
-      BOOTNODES: enode://97f0ca95a653e3c44d5df2674e19e9324ea4bf4d47a46b1d8560f3ed4ea328f725acec3fcfcb37eb11706cf07da669e9688b091f1543f89b2425700a68bc8876@104.248.98.78:30301,enode://b72927f349f3a27b789d0ca615ffe3526f361665b496c80e7cc19dace78bd94785fdadc270054ab727dbb172d9e3113694600dd31b2558dd77ad85a869032dea@188.166.207.189:30301,enode://c8f2f0643527d4efffb8cb10ef9b6da4310c5ac9f2e988a7f85363e81d42f1793f64a9aa127dbaff56b1e8011f90fe9ff57fa02a36f73220da5ff81d8b8df351@104.248.98.60:30301
+      IDENTITY: rupaya03
+      PASSWORD_FILE: /run/secrets/rupaya_password_rupaya03
+      PRIVATE_KEY_FILE: /run/secrets/rupaya_pk_rupaya03
+      BOOTNODES: enode://daea23c08fc591109d1478543ed06fc714bd2b380c1eb4bc81e0d0e2ce75d900cfa8010fe127028366c4d8ff5e132246a6268a884152785946c4d13dccf2980e@206.189.18.217:30301
       NETWORK_ID: 88
       VERBOSITY: 3
-      NETSTATS_HOST: stats.tomochain.com
+      NETSTATS_HOST: stats.rupaya.io
       NETSTATS_PORT: 443
       WS_SECRET_FILE: /run/secrets/netstats_ws_secret
       ANNOUNCE_TXS: 'true'
@@ -109,38 +109,38 @@ services:
         published: 30303
         protocol: udp
         mode: host
-      - target: 8545
-        published: 8545
+      - target: 7050
+        published: 7050
         protocol: tcp
         mode: host
-      - target: 8546
-        published: 8546
+      - target: 8050
+        published: 8050
         protocol: tcp
         mode: host
     secrets:
-      - tomochain_password_tomochain03
-      - tomochain_pk_tomochain03
+      - rupaya_password_rupaya03
+      - rupaya_pk_rupaya03
       - netstats_ws_secret
     volumes:
-      - /mnt/sgp1_vol_mainnet_masternode03_chaindata/data:/tomochain/data
+      - /mnt/sgp1_vol_mainnet_masternode03_chaindata/data:/rupaya/data
     deploy:
       placement:
         constraints:
           - node.labels.project == masternode
-          - node.labels.masternode == tomochain03
+          - node.labels.masternode == rupaya03
 
 secrets:
-  tomochain_password_tomochain01:
+  rupaya_password_rupaya01:
     external: true
-  tomochain_pk_tomochain01:
+  rupaya_pk_rupaya01:
     external: true
-  tomochain_password_tomochain02:
+  rupaya_password_rupaya02:
     external: true
-  tomochain_pk_tomochain02:
+  rupaya_pk_rupaya02:
     external: true
-  tomochain_password_tomochain03:
+  rupaya_password_rupaya03:
     external: true
-  tomochain_pk_tomochain03:
+  rupaya_pk_rupaya03:
     external: true
 
   netstats_ws_secret:

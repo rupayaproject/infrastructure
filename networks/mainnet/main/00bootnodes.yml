@@ -3,9 +3,9 @@ version: "3.4"
 services:
 
   bootnode:
-    image: tomochain/bootnode:stable
+    image: rupaya/bootnode:stable
     volumes:
-      - bootnode:/tomochain
+      - bootnode:/rupaya
     ports:
       - target: 30301
         published: 30301

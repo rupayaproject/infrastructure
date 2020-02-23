@@ -36,8 +36,8 @@ services:
         published: 30303
         protocol: udp
         mode: host
-      - 8545:8545
-      - 8546:8546
+      - 7050:7050
+      - 8050:8050
     secrets:
       - tomochain_password_earth
       - tomochain_pk_earth

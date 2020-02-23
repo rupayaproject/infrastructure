@@ -3,7 +3,7 @@ version: "3.4"
 services:
 
   tomomaster:
-    image: tomochain/tomomaster:stable
+    image: rupaya/gov:stable
     environment:
       NODE_ENV: 'mainnet'
     ports:
@@ -18,7 +18,7 @@ services:
         order: start-first
 
   tomomaster_crawler:
-    image: tomochain/tomomaster:stable
+    image: rupaya/gov:stable
     command: run crawl
     environment:
       NODE_ENV: 'mainnet_crawler'
