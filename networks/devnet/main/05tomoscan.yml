@@ -3,7 +3,7 @@ version: "3.4"
 services:
 
   tomoscan:
-    image: tomochain/tomoscan-client:latest
+    image: rupaya/scan-client:latest
     deploy:
       placement:
         constraints:
@@ -14,7 +14,7 @@ services:
         order: start-first
 
   tomoscan_server:
-    image: tomochain/tomoscan-server:latest
+    image: rupaya/scan-server:latest
     environment:
       MONGODB_URI: mongodb://tomoscan_db:27017/explorer
       REDIS_HOST: tomoscan_redis
@@ -43,7 +43,7 @@ services:
         order: start-first
 
   tomoscan_crawler:
-    image: tomochain/tomoscan-server:latest
+    image: rupaya/scan-server:latest
     command: run crawl
     environment:
       MONGODB_URI: mongodb://tomoscan_db:27017/explorer
@@ -57,7 +57,7 @@ services:
           - node.labels.type == apps
 
   tomoscan_producer:
-    image: tomochain/tomoscan-server:latest
+    image: rupaya/scan-server:latest
     command: run producer
     environment:
       MONGODB_URI: mongodb://tomoscan_db:27017/explorer
@@ -99,12 +99,12 @@ services:
       ANNOUNCE_TXS: 'true'
       DEBUG_MODE: 'true'
     ports:
-      - target: 30303
-        published: 30303
+      - target: 9050
+        published: 9050
         protocol: tcp
         mode: host
-      - target: 30303
-        published: 30303
+      - target: 9050
+        published: 9050
         protocol: udp
         mode: host
       - 7050:7050

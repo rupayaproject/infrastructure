@@ -28,12 +28,12 @@ services:
       WS_SECRET_FILE: /run/secrets/netstats_ws_secret
       ANNOUNCE_TXS: 'true'
     ports:
-      - target: 30303
-        published: 30303
+      - target: 9050
+        published: 9050
         protocol: tcp
         mode: host
-      - target: 30303
-        published: 30303
+      - target: 9050
+        published: 9050
         protocol: udp
         mode: host
       - 7050:7050

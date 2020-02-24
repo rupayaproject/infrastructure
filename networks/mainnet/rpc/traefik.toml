@@ -12,7 +12,7 @@ defaultEntryPoints = ["http", "https"]
       [entryPoints.https.tls]
 
 [acme]
-email = "etienne@tomochain.com"
+email = "aasim@rupx.io"
 storage = "acme.json"
 entryPoint = "https"
 onHostRule = true
@@ -21,6 +21,6 @@ onHostRule = true
     delayBeforeCheck = 5
 
 [docker]
-domain = "tomochain.com"
+domain = "rupaya.io"
 watch = true
 network = "masternode"

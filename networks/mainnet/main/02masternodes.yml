@@ -3,25 +3,25 @@ version: "3.4"
 services:
 
   masternode_rupaya01:
-    image: rupaya/node:stable
+    image: rupaya/node
     environment:
       IDENTITY: rupaya01
       PASSWORD_FILE: /run/secrets/rupaya_password_rupaya01
       PRIVATE_KEY_FILE: /run/secrets/rupaya_pk_rupaya01
-      BOOTNODES: enode://daea23c08fc591109d1478543ed06fc714bd2b380c1eb4bc81e0d0e2ce75d900cfa8010fe127028366c4d8ff5e132246a6268a884152785946c4d13dccf2980e@206.189.18.217:30301
-      NETWORK_ID: 88
+      BOOTNODES: enode://bd3849fffecd7d170e9f478a87f26e45e2b865392a38d7f7499aac015bce7dd6859b0016b413fca69f5968ac446906af6b8271c5f2f2b415e6ef0d5306ee979f@178.62.75.162:30301,enode://4847c3cd11d1b27b1c403aecd0fac323cc85477413a731e01de66ace162c8312a9effc013b8afc091d801ceb65cd43975543d42b4fdf9ed3f5defdbbad6aa821@68.183.38.129:30301,enode://ce238e7f2269395159ae9253f38e3f6150e6f0f3e6bf9cdc21bb0c092f24cdf5ea9b3514b1f2664f4dfcf20beae467d847df8f96ef6f45b20ff378e4790a22f8@64.227.42.139:30301
+      NETWORK_ID: 77
       VERBOSITY: 3
       NETSTATS_HOST: stats.rupaya.io
       NETSTATS_PORT: 443
       WS_SECRET_FILE: /run/secrets/netstats_ws_secret
       ANNOUNCE_TXS: 'true'
     ports:
-      - target: 30303
-        published: 30303
+      - target: 9050
+        published: 9050
         protocol: tcp
         mode: host
-      - target: 30303
-        published: 30303
+      - target: 9050
+        published: 9050
         protocol: udp
         mode: host
       - target: 7050
@@ -45,13 +45,13 @@ services:
           - node.labels.masternode == rupaya01
 
   masternode_rupaya02:
-    image: rupaya/node:stable
+    image: rupaya/node
     environment:
       IDENTITY: rupaya02
       PASSWORD_FILE: /run/secrets/rupaya_password_rupaya02
       PRIVATE_KEY_FILE: /run/secrets/rupaya_pk_rupaya02
-      BOOTNODES: enode://daea23c08fc591109d1478543ed06fc714bd2b380c1eb4bc81e0d0e2ce75d900cfa8010fe127028366c4d8ff5e132246a6268a884152785946c4d13dccf2980e@206.189.18.217:30301
-      NETWORK_ID: 88
+      BOOTNODES: enode://bd3849fffecd7d170e9f478a87f26e45e2b865392a38d7f7499aac015bce7dd6859b0016b413fca69f5968ac446906af6b8271c5f2f2b415e6ef0d5306ee979f@178.62.75.162:30301,enode://4847c3cd11d1b27b1c403aecd0fac323cc85477413a731e01de66ace162c8312a9effc013b8afc091d801ceb65cd43975543d42b4fdf9ed3f5defdbbad6aa821@68.183.38.129:30301,enode://ce238e7f2269395159ae9253f38e3f6150e6f0f3e6bf9cdc21bb0c092f24cdf5ea9b3514b1f2664f4dfcf20beae467d847df8f96ef6f45b20ff378e4790a22f8@64.227.42.139:30301
+      NETWORK_ID: 77
       VERBOSITY: 3
       NETSTATS_HOST: stats.rupaya.io
       NETSTATS_PORT: 443
@@ -59,12 +59,12 @@ services:
       ANNOUNCE_TXS: 'true'
       MAXPEERS: 200
     ports:
-      - target: 30303
-        published: 30303
+      - target: 9050
+        published: 9050
         protocol: tcp
         mode: host
-      - target: 30303
-        published: 30303
+      - target: 9050
+        published: 9050
         protocol: udp
         mode: host
       - target: 7050
@@ -88,25 +88,25 @@ services:
           - node.labels.masternode == rupaya02
 
   masternode_rupaya03:
-    image: rupaya/node:stable
+    image: rupaya/node
     environment:
       IDENTITY: rupaya03
       PASSWORD_FILE: /run/secrets/rupaya_password_rupaya03
       PRIVATE_KEY_FILE: /run/secrets/rupaya_pk_rupaya03
-      BOOTNODES: enode://daea23c08fc591109d1478543ed06fc714bd2b380c1eb4bc81e0d0e2ce75d900cfa8010fe127028366c4d8ff5e132246a6268a884152785946c4d13dccf2980e@206.189.18.217:30301
-      NETWORK_ID: 88
+      BOOTNODES: enode://bd3849fffecd7d170e9f478a87f26e45e2b865392a38d7f7499aac015bce7dd6859b0016b413fca69f5968ac446906af6b8271c5f2f2b415e6ef0d5306ee979f@178.62.75.162:30301,enode://4847c3cd11d1b27b1c403aecd0fac323cc85477413a731e01de66ace162c8312a9effc013b8afc091d801ceb65cd43975543d42b4fdf9ed3f5defdbbad6aa821@68.183.38.129:30301,enode://ce238e7f2269395159ae9253f38e3f6150e6f0f3e6bf9cdc21bb0c092f24cdf5ea9b3514b1f2664f4dfcf20beae467d847df8f96ef6f45b20ff378e4790a22f8@64.227.42.139:30301
+      NETWORK_ID: 77
       VERBOSITY: 3
       NETSTATS_HOST: stats.rupaya.io
       NETSTATS_PORT: 443
       WS_SECRET_FILE: /run/secrets/netstats_ws_secret
       ANNOUNCE_TXS: 'true'
     ports:
-      - target: 30303
-        published: 30303
+      - target: 9050
+        published: 9050
         protocol: tcp
         mode: host
-      - target: 30303
-        published: 30303
+      - target: 9050
+        published: 9050
         protocol: udp
         mode: host
       - target: 7050

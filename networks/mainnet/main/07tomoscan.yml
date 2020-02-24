@@ -3,7 +3,7 @@ version: "3.4"
 services:
 
   tomoscan:
-    image: rupaya/scan:client
+    image: rupaya/scan-client
     ports:
       - 3002:3000
     environment:
@@ -18,7 +18,7 @@ services:
         order: start-first
 
   tomoscan_server:
-    image: rupaya/scan:server
+    image: rupaya/scan-server
     environment:
       MONGODB_URI: mongodb://tomoscan_db:27017/explorer
       REDIS_HOST: tomoscan_redis
@@ -49,7 +49,7 @@ services:
         order: start-first
 
   tomoscan_crawler:
-    image: rupaya/scan:server
+    image: rupaya/scan-server
     command: run crawl
     environment:
       MONGODB_URI: mongodb://tomoscan_db:27017/explorer
@@ -61,7 +61,7 @@ services:
           - node.labels.project == tomoscan
 
   tomoscan_pending_txs:
-    image: rupaya/scan:server
+    image: rupaya/scan-server
     command: run subscribe-pending-tx
     environment:
       MONGODB_URI: mongodb://tomoscan_db:27017/explorer

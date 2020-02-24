@@ -2,8 +2,8 @@ version: "3.4"
 
 services:
 
-  tomomaster:
-    image: rupaya/gov:stable
+  governance:
+    image: rupaya/gov
     environment:
       NODE_ENV: 'mainnet'
     ports:
@@ -11,38 +11,38 @@ services:
     deploy:
       placement:
         constraints:
-          - node.labels.project == tomomaster
+          - node.labels.project == governance
       update_config:
         parallelism: 1
         delay: 10s
         order: start-first
 
-  tomomaster_crawler:
-    image: rupaya/gov:stable
+  governance_crawler:
+    image: rupaya/gov
     command: run crawl
     environment:
       NODE_ENV: 'mainnet_crawler'
     deploy:
       placement:
         constraints:
-          - node.labels.project == tomomaster
+          - node.labels.project == governance
 
-  tomomaster_db:
+  governance_db:
     image: mongo:3.6
     volumes:
-      - sgp1-vol-mainnet-tomomaster-db:/data/db
+      - volume-lon1-01-mainnet-governance-db:/data/db
     deploy:
       placement:
         constraints:
-          - node.labels.project == tomomaster
+          - node.labels.project == governance
 
-  tomomaster_redis:
+  governance_redis:
     image: redis:4-alpine
     deploy:
       placement:
         constraints:
-          - node.labels.project == tomomaster
+          - node.labels.project == governance
 
 volumes:
-  sgp1-vol-mainnet-tomomaster-db:
-    external: true
+  governancedb:
+  
